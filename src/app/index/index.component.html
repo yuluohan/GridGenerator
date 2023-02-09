@@ -27,25 +27,27 @@
         <mat-divider style="margin-top: 15px ;margin-bottom: 15px"></mat-divider>
 
   <mat-grid-list cols="4" rowHeight="300px" >
-    <mat-grid-tile  cdkDrag colspan="1" rowspan="1" >
+    <mat-grid-tile  cdkDrag [colspan]="firstCol" rowspan="1" >
 
     </mat-grid-tile>
-    <mat-grid-tile  cdkDrag colspan="1" rowspan="1">
+    <mat-grid-tile  cdkDrag [colspan]="col" rowspan="1">
+      <div class="card-father">
   <div class="card" >
     <div class="card-header"> 最喜欢的电子游戏</div>
   <div class="divContent">
   <img src="https://img1.doubanio.com/lpic/s29664198.jpg" class="card-img-bottom" alt="" >
-
   </div>
 </div>
+      </div>
     </mat-grid-tile>
 
-        <mat-grid-tile cdkDrag  colspan="1" rowspan="1">
+        <mat-grid-tile cdkDrag  [colspan]="col" rowspan="1">
+               <div class="card-father">
     <div class="card" >
     <div class="card-header"> 最喜欢的小说</div>
   <div class="divContent">
         <p class="card-text-bottom"   >《来自新世界》</p>
-  </div>
+  </div></div>
 </div>
 
 

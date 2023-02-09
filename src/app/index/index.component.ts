@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 
 @Component({
   selector: 'app-index',
@@ -7,10 +8,16 @@ import {Router} from "@angular/router";
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+  firstCol: number=1;
+  col:number = 1;
 
-  constructor( private router:Router,) { }
+  constructor( private breakpointObserver: BreakpointObserver,private router:Router,) { }
 
   ngOnInit(): void {
+      if (this.breakpointObserver.isMatched(Breakpoints.Handset)) {
+          this.col = 4;
+          this.firstCol =0;
+      }
   }
 
   onClick(id:number){
