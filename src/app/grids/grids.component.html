@@ -19,6 +19,19 @@
 
     </mat-grid-tile>
   </mat-grid-list>
+  <div class="spinner" [hidden]="!showSpinner">
+<mat-spinner></mat-spinner>
+  </div>
+
+  <h4 class="mat-h4" style="text-align: center" > grid.yuban.de/{{id}}</h4>
 
 </div>
-<button mat-stroked-button color="primary" (click)="screenshot()">Primary</button>
+
+
+<div class="button-div">
+ <button mat-fab color="primary"  (click)="screenshot()">
+          <mat-icon>screenshot</mat-icon>
+
+ </button>
+</div>
+

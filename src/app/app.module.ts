@@ -31,7 +31,10 @@ import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatTabsModule} from "@angular/material/tabs";
-
+import { MatChipsModule} from "@angular/material/chips";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -67,13 +70,18 @@ import {MatTabsModule} from "@angular/material/tabs";
     MatCardModule,
     MatGridListModule,
     MatMenuModule,
+    MatChipsModule,
     MatFormFieldModule,
+    MatListModule,
     MatDialogModule,
     MatInputModule,
     NgbModule,
     FormsModule,
     MatRadioModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCheckboxModule,
+    DragDropModule,
+    MatProgressSpinnerModule
   ],
   providers: [ {
        provide: MatDialogRef,

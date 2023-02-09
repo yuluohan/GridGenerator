@@ -41,3 +41,14 @@ margin:0;
 
 }
 
+.button-div{
+    position: absolute;
+    left:50%;
+    transform: translate(-50%,-25%);
+}
+.spinner{
+    position: absolute;
+    left:50%;
+    top:30%;
+    transform: translate(-50%,-50%);
+}

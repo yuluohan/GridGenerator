@@ -1,3 +1,60 @@
-<mat-card>
-  <mat-card-content>Simple card</mat-card-content>
-</mat-card>
+
+
+
+  <div class="d-flex h-100 text-center ">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+
+
+    <h1  class="mat-h1">按照你的想法生成：</h1>
+    <div class="lead" style="  display: flex;justify-content: center;    /* 水平居中 */">
+      <mat-chip-list>
+      <mat-chip  selected (click)="onClick(9)">日本动画生涯表</mat-chip>
+      <mat-chip   selected (click)="onClick(9)" >游戏生涯表</mat-chip>
+      <mat-chip   selected (click)="onClick(9)">三十天挑战</mat-chip>
+      <p>......</p>
+    </mat-chip-list>
+</div>
+
+    <div class="lead" style="margin-top: 15px ;margin-bottom: 15px">并邀请你的朋友填写。支持图片链接/文字，支持在线截图</div>
+
+ <div class="example-button-row">
+    <button mat-flat-button color="primary" (click)="onClickNew()">立即创建</button>
+      <button mat-flat-button style="margin-left: 15px">手气不错</button>
+ </div>
+
+        <mat-divider style="margin-top: 15px ;margin-bottom: 15px"></mat-divider>
+
+  <mat-grid-list cols="4" rowHeight="300px" >
+    <mat-grid-tile  cdkDrag colspan="1" rowspan="1" >
+
+    </mat-grid-tile>
+    <mat-grid-tile  cdkDrag colspan="1" rowspan="1">
+  <div class="card" >
+    <div class="card-header"> 最喜欢的电子游戏</div>
+  <div class="divContent">
+  <img src="https://img1.doubanio.com/lpic/s29664198.jpg" class="card-img-bottom" alt="" >
+
+  </div>
+</div>
+    </mat-grid-tile>
+
+        <mat-grid-tile cdkDrag  colspan="1" rowspan="1">
+    <div class="card" >
+    <div class="card-header"> 最喜欢的小说</div>
+  <div class="divContent">
+        <p class="card-text-bottom"   >《来自新世界》</p>
+  </div>
+</div>
+
+
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
+</div>
+
+

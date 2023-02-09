@@ -37,6 +37,7 @@ export class GridsComponent implements OnInit {
       return this.allCards;
     }
   );
+  showSpinner: boolean= true;
 
 
   ngOnInit(): void {
@@ -73,6 +74,7 @@ export class GridsComponent implements OnInit {
             this.allCards[i].rows=1;
             this.allCards[i].show_image = false
         }
+        this.showSpinner = false
 
       })
   }
