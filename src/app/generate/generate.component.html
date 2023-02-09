@@ -1,0 +1,52 @@
+<div class="grid-container">
+
+
+  <mat-grid-list cols="6" rowHeight="50px">
+
+<mat-grid-tile colspan="1" rowspan="1">
+   <div class="mat-h2">
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>标题</mat-label>
+    <input #title matInput placeholder="比如：游戏机喜好表" [value]="">
+  </mat-form-field>
+</form>
+   </div>
+</mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+       <div class="mat-h2">
+       <button mat-raised-button color="primary" (click)="post(this.allCards,title.value)">提交</button>
+       </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+
+  <mat-grid-list cols="4" rowHeight="300px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+
+  <div><form class="example-form">
+    <input #value matInput placeholder="请输入名称" [value]="card.name" (change)="onClickEditName(card.id,value.value)">
+</form> </div>
+
+
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="onClickDelete(this.card.id)">删除</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+
+
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<button mat-fab extended (click)="onClickAdd()">
+  <mat-icon>add</mat-icon>
+</button>

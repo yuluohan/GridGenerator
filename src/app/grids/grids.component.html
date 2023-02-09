@@ -1,0 +1,24 @@
+<div class="grid-container" id="capture" ref="imageTofile">
+
+<h1 class="mat-h1" style="text-align: center" > {{title}}</h1>
+
+
+
+  <mat-grid-list cols="120" rowHeight="250px" >
+    <mat-grid-tile  *ngFor="let card of allCards " [colspan]="card.cols" [rowspan]="card.rows">
+
+<div class="card-father" (click)="onClick(card.id)">
+<div class="card">
+    <div class="card-header"> {{card.name}}</div>
+  <div class="divContent">
+  <img src="{{card.image_url}}" class="card-img-bottom" alt="..." [hidden]="!card.show_image">
+        <p class="card-text-bottom"  [hidden]="card.show_image" >{{card.text}}</p>
+  </div>
+</div>
+</div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
+<button mat-stroked-button color="primary" (click)="screenshot()">Primary</button>

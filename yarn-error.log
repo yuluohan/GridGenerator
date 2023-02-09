@@ -1,0 +1,82 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add base64tofile
+
+PATH: 
+  /opt/local/bin:/opt/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/Apple/usr/bin:/Users/hanyuluo/PycharmProjects/GridGenerator/node_modules/.bin
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  16.16.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/base64tofile: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66138:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140883:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141855:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141777:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1345:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "grid-generator",
+    "version": "0.0.0",
+    "scripts": {
+      "ng": "ng",
+      "start": "ng serve",
+      "build": "ng build",
+      "watch": "ng build --watch --configuration development",
+      "test": "ng test"
+    },
+    "private": true,
+    "dependencies": {
+      "@angular/animations": "~13.3.0",
+      "@angular/cdk": "^13.3.9",
+      "@angular/common": "~13.3.0",
+      "@angular/compiler": "~13.3.0",
+      "@angular/core": "~13.3.0",
+      "@angular/forms": "~13.3.0",
+      "@angular/localize": "~13.3.0",
+      "@angular/material": "^13.3.9",
+      "@angular/platform-browser": "~13.3.0",
+      "@angular/platform-browser-dynamic": "~13.3.0",
+      "@angular/router": "~13.3.0",
+      "@moonncat/base64tofile": "^0.0.5",
+      "@ng-bootstrap/ng-bootstrap": "^12.1.2",
+      "@popperjs/core": "^2.10.2",
+      "bootstrap": "^5.2.3",
+      "html2canvas": "^1.4.1",
+      "rxjs": "~7.5.0",
+      "tslib": "^2.3.0",
+      "zone.js": "~0.11.4"
+    },
+    "devDependencies": {
+      "@angular-devkit/build-angular": "~13.3.10",
+      "@angular/cli": "~13.3.10",
+      "@angular/compiler-cli": "~13.3.0",
+      "@types/jasmine": "~3.10.0",
+      "@types/node": "^12.11.1",
+      "jasmine-core": "~4.0.0",
+      "karma": "~6.3.0",
+      "karma-chrome-launcher": "~3.1.0",
+      "karma-coverage": "~2.1.0",
+      "karma-jasmine": "~4.0.0",
+      "karma-jasmine-html-reporter": "~1.7.0",
+      "typescript": "~4.6.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

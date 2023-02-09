@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>编辑内容</h1>
+<div mat-dialog-content>
+
+  <mat-tab-group>
+  <mat-tab label="图片">
+    <br>
+    <form>
+    <mat-form-field class="example-full-width">
+    <mat-label>图片链接</mat-label>
+    <input #inputImage matInput placeholder="" [value]="imageUrl">
+  </mat-form-field>
+  </form>
+  <button mat-button (click)="onClickImage(inputImage.value)" >确定</button>
+  </mat-tab>
+
+  <mat-tab label="文字">
+        <br>
+    <form>
+    <mat-form-field class="example-full-width">
+    <mat-label>文字</mat-label>
+    <input #inputText matInput placeholder="" [value]="text">
+  </mat-form-field>
+  </form>
+
+
+  <button mat-button (click)="onClickText(inputText.value)" >确定</button>
+<!--  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>-->
+
+
+  </mat-tab>
+
+</mat-tab-group>
+
+
+</div>

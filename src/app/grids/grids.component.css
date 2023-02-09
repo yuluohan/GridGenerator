@@ -1,0 +1,43 @@
+.grid-container {
+  margin: 20px;
+}
+
+
+.card-father{
+  position: absolute;
+    display:flex;
+  flex-direction: column;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.card{
+    height: 100%;
+}
+
+.item{
+  width: 200px;
+}
+
+.divContent{
+			width:100%;
+			height: 100%;
+			overflow:hidden;
+}
+
+.card-img-bottom{
+
+margin:0;
+			padding:0;
+			width:100%;
+			height: 100%;
+			object-fit: cover;
+}
+.card-text-bottom{
+  padding: 70px 0;
+   text-align: center;
+
+}
+
