@@ -2,12 +2,15 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     >
-    <mat-toolbar></mat-toolbar>
+
     <mat-nav-list>
       <a mat-list-item href="">首页</a>
       <a mat-list-item href="new">制作格子</a>
       <mat-divider></mat-divider>
-
+ <mat-toolbar>关于</mat-toolbar>
+            <a mat-list-item href="https://www.douban.com/people/154114946" >by 韩雨洛</a>
+      <a mat-list-item href="https://github.com/yuluohan/GridGenerator">GitHub 仓库</a>
+       <a mat-list-item href="https://chiwutang.uk" >赤乌堂</a>
     </mat-nav-list>
 
   </mat-sidenav>
