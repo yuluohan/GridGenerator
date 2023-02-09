@@ -22,14 +22,14 @@
 
 
 
-  <mat-grid-list cols="4" rowHeight="300px">
+  <mat-grid-list cols="120" rowHeight="300px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
-        <mat-card-header>
+
           <mat-card-title>
 
   <div><form class="example-form">
-    <input #value matInput placeholder="请输入名称" [value]="card.name" (change)="onClickEditName(card.id,value.value)">
+    <input #value matInput placeholder="名称" [value]="card.name" (change)="onClickEditName(card.id,value.value)">
 </form> </div>
 
 
@@ -40,7 +40,7 @@
               <button mat-menu-item (click)="onClickDelete(this.card.id)">删除</button>
             </mat-menu>
           </mat-card-title>
-        </mat-card-header>
+
 
 
       </mat-card>

@@ -13,7 +13,7 @@ import {ResultComponent} from "../result/result.component";
   templateUrl: './generate.component.html',
   styleUrls: ['./generate.component.css']
 })
-export class GenerateComponent {
+export class GenerateComponent implements OnInit{
 
 
   allCards:Card[]=[]
@@ -22,6 +22,7 @@ export class GenerateComponent {
 
   title:string=""
 
+  col:number = 20;
 
 
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -35,11 +36,11 @@ export class GenerateComponent {
   );
 
   constructor(private breakpointObserver: BreakpointObserver,private http: HttpClient,public dialog: MatDialog) {
-    this.allCards.push({show_image: true, image_url: "", text: "", id: 0, cols: 1, rows: 1, name: ""});
+
   }
 
   onClickAdd(){
-      this.allCards.push({image_url: "", show_image: true, text: "", id: this.id, cols: 1, rows: 1, name: ""});
+      this.allCards.push({image_url: "", show_image: true, text: "", id: this.id, cols: this.col, rows: 1, name: ""});
       this.id=this.id+1;
   }
 
@@ -87,6 +88,35 @@ export class GenerateComponent {
             alert(response)
           }
         });
+  }
+
+  ngOnInit(): void {
+
+     let col = 20;
+
+        if (this.breakpointObserver.isMatched(Breakpoints.Large)) {
+          col = 15;
+      }
+      if (this.breakpointObserver.isMatched(Breakpoints.Medium)){
+         col = 20
+      }
+      if (this.breakpointObserver.isMatched(Breakpoints.Small)){
+        col = 60;
+      }
+      if (this.breakpointObserver.isMatched(Breakpoints.Handset)){
+        col = 60;
+      }
+      if (this.breakpointObserver.isMatched(Breakpoints.Web)){
+        col = 20
+      }
+      if (this.breakpointObserver.isMatched(Breakpoints.Tablet)){
+        col = 24
+      }
+
+    this.col= col;
+
+      this.allCards.push({show_image: true, image_url: "", text: "", id: 0, cols: this.col, rows: 1, name: ""});
+
   }
 
 
