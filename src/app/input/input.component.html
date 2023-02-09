@@ -11,6 +11,11 @@
   </mat-form-field>
   </form>
   <button mat-button (click)="onClickImage(inputImage.value)" >确定</button>
+    <button mat-button (click)="handleClick()" >文件</button>
+
+<input class="hidden" type="file" id="upload-file" name="upload-file" accept=".png,.jpg" ngf-max-size="2MB" (change)="addAttachment($event)">
+
+
   </mat-tab>
 
   <mat-tab label="文字">
@@ -25,7 +30,6 @@
 
   <button mat-button (click)="onClickText(inputText.value)" >确定</button>
 <!--  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>-->
-
 
   </mat-tab>
 

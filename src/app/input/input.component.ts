@@ -42,4 +42,27 @@ constructor(
     let c :Card ={cols: 0, id: this.id, image_url: '', name: '', rows: 0, show_image: false, text: value}
     this.dialogRef.close(c);
   }
+
+  handleClick() {
+  document.getElementById('upload-file')!.click();
+}
+
+addAttachment(fileInput: any) {
+  const fileReaded = fileInput.target.files[0];
+  console.log(fileReaded)
+  //  handle the rest
+   const reader = new FileReader();
+      reader.readAsDataURL(fileReaded as any);
+      reader.onload = () => {
+        const canvas = document.createElement('canvas');
+        const img = document.createElement('img');
+        img.src = reader.result as string;
+
+    this.showImage = true;
+    let c :Card ={cols: 0, id: this.id, image_url: img.src, name: '', rows: 0, show_image: true, text: img.src}
+     this.dialogRef.close(c);
+      };
+
+}
+
 }
