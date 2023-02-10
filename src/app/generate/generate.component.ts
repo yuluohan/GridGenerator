@@ -66,11 +66,9 @@ export class GenerateComponent implements OnInit{
     private url = 'https://api.chiwutang.uk/grid/';  // URL to web ap
 
 
+  post(cards: Card[], title: string, token: string){
 
-  post(cards: Card[], title: string){
-    console.log(title)
-    console.log(cards)
-    let cardsData = {cards: cards,  title: title, username: "test"};
+    let cardsData = {cards: cards,  title: title, username: "test",token:token};
     this.http.post<CardsData>(this.url,cardsData,{ observe: 'response' }).subscribe(response=>
         {
           console.log(response)

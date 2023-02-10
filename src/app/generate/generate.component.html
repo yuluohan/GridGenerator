@@ -8,14 +8,27 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>标题</mat-label>
-    <input #title matInput placeholder="比如：游戏机喜好表" [value]="">
+    <div class="form-group">
+    <input #title matInput placeholder="比如：游戏机喜好表" [value]="" onchange="function clickInput() {
+
+       grecaptcha.enterprise.ready(async () => {
+              const token = await grecaptcha.enterprise.execute('6Lf26mkkAAAAAE1CxFDoW8xWgQS-hq_HvDKjUpW-', {action: 'LOGIN'});
+
+           document.getElementById('token').setAttribute('placeholder',token);
+           })
+
+    }
+    clickInput()">
+    </div>
   </mat-form-field>
 </form>
    </div>
 </mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="1">
-       <div class="mat-h2">
-       <button mat-raised-button color="primary" (click)="post(this.allCards,title.value)">提交</button>
+       <div class="mat-h2">  <div class="form-group">
+  <input #tokenNew type="text" id="token" class="form-control" hidden [value]="tokenNew"  [placeholder]="tokenNew">
+       <button mat-raised-button color="primary" (click)="post(this.allCards,title.value,tokenNew.placeholder)">提交</button>
+  </div>
        </div>
     </mat-grid-tile>
   </mat-grid-list>
