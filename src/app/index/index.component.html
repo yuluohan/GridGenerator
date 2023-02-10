@@ -11,8 +11,8 @@
     <div class="lead" style="  display: flex;justify-content: center;    /* 水平居中 */">
       <mat-chip-list>
       <mat-chip  selected (click)="onClick(9)">日本动画生涯表</mat-chip>
-      <mat-chip   selected (click)="onClick(9)" >游戏生涯表</mat-chip>
-      <mat-chip   selected (click)="onClick(9)">三十天挑战</mat-chip>
+      <mat-chip   selected (click)="onClick(10)" >推理小说喜好表</mat-chip>
+      <mat-chip   selected (click)="onClick(4)">三十天挑战</mat-chip>
       <p>......</p>
     </mat-chip-list>
 </div>
@@ -21,7 +21,7 @@
 
  <div class="example-button-row">
     <button mat-flat-button color="primary" (click)="onClickNew()">立即创建</button>
-      <button mat-flat-button style="margin-left: 15px">手气不错</button>
+      <button mat-flat-button style="margin-left: 15px" (click)="onClickRandom()">手气不错</button>
  </div>
 
         <mat-divider style="margin-top: 15px ;margin-bottom: 15px"></mat-divider>
