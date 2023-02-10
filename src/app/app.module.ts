@@ -35,6 +35,7 @@ import { MatChipsModule} from "@angular/material/chips";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -83,7 +84,9 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     DragDropModule,
     MatProgressSpinnerModule
   ],
-  providers: [ {
+  providers: [
+    CookieService,
+    {
        provide: MatDialogRef,
        useValue: {}
      }],

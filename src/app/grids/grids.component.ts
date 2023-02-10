@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CardsData} from "../generate/CardsData";
 import {HttpClient} from "@angular/common/http";
@@ -7,7 +7,7 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {MatDialog} from "@angular/material/dialog";
 import {InputComponent} from "../input/input.component";
 import html2canvas from "html2canvas";
-
+import {CookieService} from "ngx-cookie-service";
 
 
 @Component({
@@ -18,7 +18,8 @@ import html2canvas from "html2canvas";
 export class GridsComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver,   private route: ActivatedRoute,
-    private router:Router,private http:HttpClient,public dialog: MatDialog) { }
+    private router:Router,private http:HttpClient,public dialog: MatDialog,
+              private cookieService: CookieService) { }
 
   id:number=0;
 
@@ -41,6 +42,7 @@ export class GridsComponent implements OnInit {
 
 
   ngOnInit(): void {
+
       const id = this.route.snapshot.paramMap.get('id')!;
       this.id=Number(id);
       this.http.get<CardsData>(this.url+"/"+id,{ observe: 'response' }).subscribe(response=>{
@@ -67,15 +69,26 @@ export class GridsComponent implements OnInit {
         col = 24
       }
 
+
         this.title = response.body?.title!
         this.allCards = response.body?.cards!
+
+
+        let cookie = this.cookieService.get(String(this.id)+"yuban")
+           if (cookie == ''){
+          console.log("首次访问无缓存")
+        }else {
+          this.allCards = JSON.parse(cookie)
+        }
+
+
+
         for (let i=0; i<this.allCards.length; i++){
             this.allCards[i].cols=col;
             this.allCards[i].rows=1;
             this.allCards[i].show_image = false
         }
         this.showSpinner = false
-
       })
   }
 
@@ -83,10 +96,7 @@ export class GridsComponent implements OnInit {
       const dialogRef = this.dialog.open(InputComponent, {data: id,});
 
             dialogRef.afterClosed().subscribe(result => {
-              console.log('The dialog was closed');
-              console.log(result);
               this.updateData(result.id,result.show_image,result.text)
-
             });
 
   }
@@ -103,6 +113,8 @@ export class GridsComponent implements OnInit {
               }
             }
         }
+
+     this.cookieService.set(String(this.id)+"yuban", JSON.stringify(this.allCards) );
   }
 
 
@@ -118,8 +130,5 @@ export class GridsComponent implements OnInit {
     link.remove()
   })
   }
-
-
-
 
 }
