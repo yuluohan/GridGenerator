@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {Card} from "./Card";
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {Observable, throwError} from "rxjs";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {CardsData} from "./CardsData";
 import {MatDialog} from "@angular/material/dialog";
 import {ResultComponent} from "../result/result.component";
@@ -69,10 +69,10 @@ export class GenerateComponent implements OnInit{
   post(cards: Card[], title: string, token: string){
 
     let cardsData = {cards: cards,  title: title, username: "test",token:token};
-    this.http.post<CardsData>(this.url,cardsData,{ observe: 'response' }).subscribe(response=>
+    this.http.post<CardsData>(this.url,cardsData,{ observe: 'response' }).pipe(catchError(this.handleError)).subscribe(response=>
         {
           console.log(response)
-          if (response.status==200){
+
             // @ts-ignore
             let id =response.body.id
             const dialogRef = this.dialog.open(ResultComponent, {data: id,});
@@ -82,9 +82,6 @@ export class GenerateComponent implements OnInit{
 
             });
 
-          }else {
-            alert(response)
-          }
         });
   }
 
@@ -116,6 +113,21 @@ export class GenerateComponent implements OnInit{
       this.allCards.push({show_image: true, image_url: "", text: "", id: 0, cols: this.col, rows: 1, name: ""});
 
   }
+
+  private handleError(error: HttpErrorResponse) {
+  if (error.status === 0) {
+    // A client-side or network error occurred. Handle it accordingly.
+    console.error('An error occurred:', error.error);
+  } else {
+    // The backend returned an unsuccessful response code.
+    // The response body may contain clues as to what went wrong.
+    console.error(
+      `Backend returned code ${error.status}, body was: `, error.error);
+  }
+  // Return an observable with a user-facing error message.
+    alert(error.error.message)
+  return throwError(() => new Error(error.error.message));
+}
 
 
 }
